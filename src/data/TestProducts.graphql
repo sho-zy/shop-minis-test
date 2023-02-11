@@ -1,0 +1,34 @@
+query QuickstartTestProducts($shopId: ID!, $productIds: [ID!]!) {
+  shop(id: $shopId) {
+    id
+    name
+    productsByIds(ids: $productIds) {
+      id
+      title
+      tags
+      featuredImage {
+        id
+        altText
+        url
+      }
+      defaultVariant {
+        id
+        title
+        isFavorited
+        compareAtPrice {
+          amount
+          currencyCode
+        }
+        price {
+          amount
+          currencyCode
+        }
+        image {
+          id
+          altText
+          url
+        }
+      }
+    }
+  }
+}

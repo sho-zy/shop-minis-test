@@ -1,0 +1,132 @@
+{
+  "root": true,
+  "extends": [
+    "@react-native-community",
+    "plugin:@shopify/typescript",
+    "plugin:@shopify/react",
+    "plugin:@shopify/jest",
+    "plugin:@shopify/prettier"
+  ],
+  "plugins": ["jest", "reanimated"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "project": "./tsconfig.json",
+    "schema": "node_modules/@shopify/shop-minis-platform-sdk/src/api/minis.graphql",
+    "operations": "**/*.graphql"
+  },
+  "rules": {
+    "@babel/no-unused-expressions": 0,
+    "@typescript-eslint/no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true
+      }
+    ],
+    "line-comment-position": 0,
+    "no-implicit-coercion": 2,
+    "consistent-return": 0,
+    "no-console": 0,
+    "jsx-a11y/no-autofocus": 0,
+    "@shopify/strict-component-boundaries": 0,
+    "react/display-name": 0,
+    "spaced-comment": 0,
+    "no-warning-comments": "off",
+    "no-process-env": "off",
+    "lines-around-comment": "off",
+    "react/jsx-no-bind": "off",
+    "react/state-in-constructor": "off",
+    "react/jsx-no-constructed-context-values": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "@shopify/typescript/prefer-pascal-case-enums": "off",
+    "@typescript-eslint/naming-convention": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/consistent-indexed-object-style": "off",
+    "@typescript-eslint/member-ordering": "off",
+    "@shopify/react-no-multiple-render-methods": "off",
+    "@shopify/react-type-state": "off",
+    "@shopify/react-prefer-private-members": "off",
+    "react/no-unused-prop-types": "off",
+    "@shopify/jest/no-vague-titles": "off",
+    "@shopify/jsx-no-complex-expressions": "off",
+    "@shopify/jsx-no-hardcoded-content": "off",
+    "import/no-named-as-default": "off",
+    "import/named": "off",
+    "id-blacklist": [2, "blacklist", "whitelist"],
+    "@shopify/images-no-direct-imports": "off",
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/class-name-casing": "off",
+    "@typescript-eslint/array-type": "off",
+    "jest/no-standalone-expect": "off",
+    "jest/no-test-callback": "off",
+    "@typescript-eslint/no-namespace": "off",
+    "react-native/no-inline-styles": "off",
+    "jsx-a11y/accessible-emoji": "off",
+    "jest/valid-title": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_.{1,}"
+      }
+    ],
+    "@typescript-eslint/no-shadow": "error",
+    "no-shadow": "off",
+    "max-len": [
+      "error",
+      {
+        "code": 200,
+        "ignoreUrls": true
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "react",
+            "importNames": ["default"],
+            "message": "JSX Transform is active. Please remove unnecessary default import of 'React' or use destructured named imports instead"
+          }
+        ]
+      }
+    ],
+    "reanimated/js-function-in-worklet": 2,
+    "react-hooks/exhaustive-deps": ["error"]
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-non-null-assertion": 0,
+        "shopify/typescript/prefer-pascal-case-enums": 0
+      }
+    },
+    {
+      "files": ["**/*.graphql"],
+      "extends": "plugin:@graphql-eslint/operations-recommended",
+      "rules": {
+        "@graphql-eslint/no-deprecated": "warn",
+
+        // we sometimes declare fragments that get used in TypeScript, which causes this to error
+        "@graphql-eslint/no-unused-fragments": "off",
+        "@graphql-eslint/naming-convention": "off",
+        "@graphql-eslint/selection-set-depth": ["error", {"maxDepth": 15}]
+      }
+    },
+    {
+      "files": ["*.spec.*", "*.test.*"],
+      "rules": {
+        "require-await": 2,
+        "@typescript-eslint/no-floating-promises": 2
+      }
+    }
+  ]
+}

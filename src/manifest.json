@@ -1,0 +1,29 @@
+{
+  "name": "quickstart",
+  "handle": "quickstart",
+  "icon_url": "https://cdn.shopify.com/shop-assets/static_uploads/mini_apps/mini-placeholder-icon.png",
+  "shopify_app_ids": [],
+  "description": "Mini App Description",
+  "entry_points": [
+    {
+      "type": "ACTION_BUTTON",
+      "location": "PRODUCT_PAGE",
+      "images": {
+        "default_value": []
+      },
+      "call_to_action_text": {
+        "default_value": "Open quickstart"
+      },
+      "visibility": {
+        "owner_type": "PRODUCT",
+        "namespace": "quickstart",
+        "key": "available"
+      },
+      "visibility_rule": {
+        "owner_type": "SHOP",
+        "namespace": "quickstart",
+        "key": "product_entry_point_rule"
+      }
+    }
+  ]
+}
